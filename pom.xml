@@ -70,7 +70,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>automationexample</projectName>
+                            <projectName>groep4_testing_automation</projectName>
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <inputDirectory>${project.build.directory}</inputDirectory>
                             <jsonFiles>
