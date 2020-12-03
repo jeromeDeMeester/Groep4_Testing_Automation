@@ -18,7 +18,7 @@
     <main>
         <h1>Registered patients</h1>
         <c:choose>
-            <c:when test="${not empty patients}">
+            <c:when test="${not empty maaltijden}">
                 <table class="table table-striped">
                     <thead class="thead-light">
                     <tr>
@@ -26,9 +26,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="patient" items="${patients}">
+                    <c:forEach var="maaltijd" items="${maaaltijden}">
                         <tr>
-                            <td><a href="Controller?command=PatientDetails&ssn=${patient.SSN}"><c:out value='${patient.SSN}'/></a></td>
+                            <td><c:out value='${maaltijd.naam}'/></td>
+                            <td><c:out value='${maaltijd.prijs}'/></td>
+                            <td><a href="Controller?command=MaaltijdAdd&naam=${maaltijd.naam}">Add</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

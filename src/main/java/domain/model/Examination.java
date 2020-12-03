@@ -1,3 +1,4 @@
+/*
 package domain.model;
 
 import java.time.LocalDate;
@@ -38,3 +39,4 @@ public class Examination {
         this.examinationDate = examinationDate;
     }
 }
+*/
