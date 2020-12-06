@@ -30,7 +30,7 @@
                         <tr>
                             <td><c:out value='${maaltijd.naam}'/></td>
                             <td><c:out value='${maaltijd.prijs}'/></td>
-                            <td><a href="Controller?command=MaaltijdAdd&naam=${maaltijd.naam}">Add</a></td>
+                            <td> <c:out value='${maaltijd.type}'/></td>
                         </tr>
                     </c:forEach>
                     </tbody>
