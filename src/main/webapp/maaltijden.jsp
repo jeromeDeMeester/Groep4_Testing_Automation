@@ -26,7 +26,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="maaltijd" items="${maaaltijden}">
+                    <c:forEach var="maaltijd" items="${maaltijden}">
                         <tr>
                             <td><c:out value='${maaltijd.naam}'/></td>
                             <td><c:out value='${maaltijd.prijs}'/></td>

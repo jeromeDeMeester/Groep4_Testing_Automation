@@ -1,12 +1,12 @@
 package ui.steps;
 
-import domain.model.Examination;
+//import domain.model.Examination;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import domain.model.Patient;
+//import domain.model.Patient;
 
 
 import org.openqa.selenium.WebDriver;

@@ -8,3 +8,15 @@
     <link rel="stylesheet" href="css/style.css?v=<fmt:formatDate pattern="yyyyMMddHHmmss" value="<%=new java.util.Date()%>"/>">
     <title><c:out value="${param.title}" /> - BMI app</title>
 </head>
+<body>
+    <header>
+        <h1>${param.title}</h1>
+        <nav>
+            <ul>
+                <li><a href="Controller?command=Home">Home</a></li>
+                <li><a href="Controller?command=OverviewMaaltijden">Overview</a></li>
+                <li><a href="Controller?command=SignUp">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
