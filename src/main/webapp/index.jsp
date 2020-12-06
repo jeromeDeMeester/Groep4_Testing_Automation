@@ -13,7 +13,7 @@
     <jsp:param name="activePage" value="home"/>
 </jsp:include>
 
-<div class="container">
+<div id="container">
     <main>
         <div class="jumbotron">
             <h1>Homepage</h1>

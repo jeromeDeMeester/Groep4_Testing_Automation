@@ -14,7 +14,7 @@
     <jsp:param name="activePage" value="persons"/>
 </jsp:include>
 
-<div class="container">
+<div id="container">
     <main>
         <h1>Registered patients</h1>
         <c:choose>

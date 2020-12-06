@@ -14,7 +14,7 @@
     <jsp:param name="activePage" value="persondetails"/>
 </jsp:include>
 
-<div class="container">
+<div id="container">
     <main>
         <h1>Patient Details</h1>
             <table class="table table-striped">

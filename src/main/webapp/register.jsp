@@ -14,7 +14,7 @@
     <jsp:param name="activePage" value="register"/>
 </jsp:include>
 
-<div class="container">
+<div id="container">
     <main>
         <form method="post" action="Controller?command=Register">
             <p>
