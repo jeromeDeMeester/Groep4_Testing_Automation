@@ -16,7 +16,7 @@
 
 <div id="container">
     <main>
-        <h1>Registered patients</h1>
+        <h1>Maaltijden</h1>
         <c:choose>
             <c:when test="${not empty maaltijden}">
                 <table class="table table-striped">
@@ -28,9 +28,11 @@
                     <tbody>
                     <c:forEach var="maaltijd" items="${maaltijden}">
                         <tr>
-                            <td><c:out value='${maaltijd.naam}'/></td>
-                            <td><c:out value='${maaltijd.prijs}'/></td>
-                            <td> <c:out value='${maaltijd.type}'/></td>
+                            <td id="naam"><c:out value='${maaltijd.naam}'/></td>
+                            <td id="prijs"><c:out value='${maaltijd.prijs}'/></td>
+                            <td id="categorie"> <c:out value='${maaltijd.type}'/></td>
+                            <c:if test="${maaltijd.vegetarisch}"> <td id="vegetarisch">Vegetarisch</td></c:if>
+                           <c:if test="${maaltijd.allergenen.size() != 0}"> <td id="allergenen"> <c:forEach var="allergeen" items="${maaltijd.allergenen}"> <c:out value="${allergeen}"/> </c:forEach></td></c:if>
                         </tr>
                     </c:forEach>
                     </tbody>
