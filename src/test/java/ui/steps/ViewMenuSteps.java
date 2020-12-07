@@ -12,36 +12,58 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import ui.OverviewPage;
 import ui.Page;
-import ui.PatientsPage;
 import ui.RegisterPage;
 
 import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class ViewAllPatientsSteps {
+public class ViewMenuSteps {
 
     private WebDriver driver;
+    //path needs to be the same as in the tomcat configuration.
     private String path = "http://localhost:8080/Controller";
 
     private Page currentPage;
 
+    //starting up chrome driver
     @Before
     public void setUp() {
         //System.setProperty("webdriver.chrome.driver", "/Users/.../web3pers/chromedriver");
         // windows: gebruik dubbele \\ om pad aan te geven
         // hint: zoek een werkende test op van web 2 ...
-        System.setProperty("webdriver.chrome.driver", "/Applications/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\herre\\Downloads\\chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 
+    //only checking the data, no need for cleanup
     @After
     public void clean() {
-        driver.get(path+"?command=DeleteAll");
         driver.quit();
     }
 
+    @Given("dat er maaltijden op het menu staan")
+    public void Toon_alle_maaltijden_die_op_het_menu_staan(){
+        //no need to register users as they are already registered
+    }
+
+    @When("“Jan” op het menu kijkt")
+    public void Jan_requests_to_get_all_patients(){
+        currentPage = PageFactory.initElements(driver, OverviewPage.class);
+    }
+
+    @Then("worden alle maaltijden getoond die op het menu staan")
+    public void Alle_maaltijden_zouden_getoond_moeten_worden(){
+        assertEquals("Patient Overview - BMI app", driver.getTitle());
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("broodje1"));
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("pasta1"));
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("frietjes"));
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("broodje2"));
+    }
+
+    /* //Examples given by the teachers, i think atleast
     @Given("there are patients registered")
     public void there_are_patients_registered() {
         RegisterPage page = PageFactory.initElements(driver, RegisterPage.class);
@@ -103,6 +125,6 @@ public class ViewAllPatientsSteps {
         page.setLength("160");
         page.setWeight("800000");
         page.submitValid();
-    }
+    }*/
 
 }
