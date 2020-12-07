@@ -8,17 +8,20 @@ import org.openqa.selenium.support.PageFactory;
 
 public class RegisterPage extends Page {
 
-    @FindBy(id="ssn")
-    private WebElement ssnField;
+    @FindBy(id="naam")
+    private WebElement naamField;
 
-    @FindBy(id="gender")
-    private WebElement genderField;
+    @FindBy(id="prijs")
+    private WebElement prijsField;
 
-    @FindBy(id="weight")
-    private WebElement weightField;
+    @FindBy(id="type")
+    private WebElement typeField;
 
-    @FindBy(id="length")
-    private WebElement lengthField;
+    @FindBy(id="vegetarisch")
+    private WebElement vegetarischField;
+
+    @FindBy(id="allergenen")
+    private WebElement allergenenField;
 
     @FindBy(id="register")
     private WebElement registerButton;
@@ -28,24 +31,30 @@ public class RegisterPage extends Page {
         this.driver.get(getPath()+"?command=SignUp");
     }
 
-    public void setSSN(String ssn) {
-        ssnField.clear();
-        ssnField.sendKeys(ssn);
+    public void setNaam(String Naam) {
+        naamField.clear();
+        naamField.sendKeys(Naam);
     }
 
-    public void setGender(String gender) {
-        genderField.clear();
-        genderField.sendKeys(gender);
+    public void setPrijs(String Prijs) {
+        prijsField.clear();
+        prijsField.sendKeys(Prijs);
     }
 
-    public void setWeight(String height) {
-        weightField.clear();
-        weightField.sendKeys(height);
+    public void setType(String Type) {
+        typeField.clear();
+        typeField.sendKeys(Type);
     }
 
-    public void setLength(String length) {
-        lengthField.clear();
-        lengthField.sendKeys(length);
+    public void setVegetarisch(Boolean Vegetarisch) {
+        if(Vegetarisch){
+            vegetarischField.click();
+        }
+    }
+
+    public void setAllergenen(String allergenen) {
+        allergenenField.clear();
+        allergenenField.sendKeys(allergenen);
     }
 
     public void submitValid() {

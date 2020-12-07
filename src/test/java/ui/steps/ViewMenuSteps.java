@@ -46,7 +46,31 @@ public class ViewMenuSteps {
 
     @Given("dat er maaltijden op het menu staan")
     public void Toon_alle_maaltijden_die_op_het_menu_staan(){
-        //no need to register users as they are already registered
+        RegisterPage page = PageFactory.initElements(driver, RegisterPage.class);
+        page.setNaam("broodje1");
+        page.setPrijs("3.0");
+        page.setType("broodje");
+        page.submitValid();
+
+        page = PageFactory.initElements(driver, RegisterPage.class);
+        page.setNaam("broodje2");
+        page.setPrijs("5.0");
+        page.setType("broodje");
+        page.setAllergenen("Pindas Lactose");
+        page.submitValid();
+
+        page = PageFactory.initElements(driver, RegisterPage.class);
+        page.setNaam("pasta1");
+        page.setPrijs("4.0");
+        page.setType("pasta");
+        page.submitValid();
+
+        page = PageFactory.initElements(driver, RegisterPage.class);
+        page.setNaam("frietjes");
+        page.setPrijs("3.0");
+        page.setType("snack");
+        page.setVegetarisch(true);
+        page.submitValid();
     }
 
     @When("“Jan” op het menu kijkt")
@@ -58,9 +82,9 @@ public class ViewMenuSteps {
     public void Alle_maaltijden_zouden_getoond_moeten_worden(){
         assertEquals("Patient Overview - BMI app", driver.getTitle());
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("broodje1"));
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("broodje2"));
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("pasta1"));
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("frietjes"));
-        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("broodje2"));
     }
 
     /* //Examples given by the teachers, i think atleast
