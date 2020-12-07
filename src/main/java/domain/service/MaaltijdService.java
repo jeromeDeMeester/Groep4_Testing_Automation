@@ -13,6 +13,7 @@ public class MaaltijdService {
     private List<Maaltijd> maaltijden = new ArrayList<Maaltijd>();
 
     public MaaltijdService() {
+        /*preprogrammed items breaks tests
         ArrayList<String> allergenen = new ArrayList<>();
         allergenen.add("Pindas");
         allergenen.add("Lactose");
@@ -23,7 +24,7 @@ public class MaaltijdService {
         this.add(maaltijd);
         this.add(maaltijd2);
         this.add(maaltijd3);
-        this.add(maaltijd4);
+        this.add(maaltijd4);*/
         Collections.sort(maaltijden);
     }
 

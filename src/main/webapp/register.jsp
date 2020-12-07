@@ -18,20 +18,24 @@
     <main>
         <form method="post" action="Controller?command=Register">
             <p>
-                <label for="ssn">SSN</label>
-                <input type="text" id="ssn" name="ssn">
+                <label for="naam">naam</label>
+                <input type="text" id="naam" name="naam">
             </p>
             <p>
-                <label for="gender">Gender</label>
-                <input type="text" id="gender" name="gender">
+                <label for="prijs">prijs</label>
+                <input type="number" id="prijs" name="prijs">
             </p>
             <p>
-                <label for="length">Length</label>
-                <input type="number" id="length"  name="length">
+                <label for="type">type</label>
+                <input type="text" id="type" name="type">
             </p>
             <p>
-                <label for="weight">Weight</label>
-                <input type="number" id="weight" name="weight">
+                <label for="vegetarisch">Vegetarisch</label>
+                <input type="checkbox" id="vegetarisch" name="vegetarisch">
+            </p>
+            <p>
+                <label for="allergenen">allergenen</label>
+                <input type="text" id="allergenen" name="allergenen">
             </p>
             <p>
                 <input type="submit" id="register" value="Register">
