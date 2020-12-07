@@ -22,7 +22,10 @@
                 <table class="table table-striped">
                     <thead class="thead-light">
                     <tr>
-                        <th scope="col">SSN</th>
+                        <th scope="col">Naam</th>
+                        <th scope="col">Prijs</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Allergïenen</th>
                     </tr>
                     </thead>
                     <tbody>

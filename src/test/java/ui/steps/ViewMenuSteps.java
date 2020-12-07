@@ -99,6 +99,22 @@ public class ViewMenuSteps {
         assertTrue(((OverviewPage)currentPage).containsErrorMessage("No patients found"));
     }
 
+    @Given("Dat een “broodje brie” “walnoten” bevat")
+    public void datEenBroodjeBrieWalnotenBevat() {
+        RegisterPage page = PageFactory.initElements(driver, RegisterPage.class);
+        page.setNaam("Broodje Brie");
+        page.setPrijs("3.0");
+        page.setType("broodje");
+        page.setAllergenen("Walnoten");
+        page.submitValid();
+    }
+
+    @Then("ziet hij dat de maaltijd sporen van walnoten bevat")
+    public void zietHijDatDeMaaltijdSporenVanWalnotenBevat() {
+        assertEquals("Patient Overview - BMI app", driver.getTitle());
+        assertTrue(((OverviewPage)currentPage).containsAlergieWithName("Walnoten"));
+    }
+
     /* //Examples given by the teachers, i think atleast
     @Given("there are patients registered")
     public void there_are_patients_registered() {

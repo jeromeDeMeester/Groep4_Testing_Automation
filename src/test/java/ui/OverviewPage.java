@@ -23,6 +23,16 @@ public class OverviewPage extends Page {
         return false;
     }
 
+    public boolean containsAlergieWithName (String naam) {
+        List<WebElement> trs = driver.findElements(By.cssSelector("td"));
+        for (WebElement tr: trs) {
+            if (tr.getText().equals(naam)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean containsErrorMessage (String naam) {
         WebElement error = driver.findElement(By.cssSelector("em"));
         return error.getText().equals(naam);
