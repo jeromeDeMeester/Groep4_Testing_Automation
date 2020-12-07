@@ -23,8 +23,8 @@ public class OverviewPage extends Page {
         return false;
     }
 
-    public boolean containsErrorMessage (String ssn) {
+    public boolean containsErrorMessage (String naam) {
         WebElement error = driver.findElement(By.cssSelector("em"));
-        return error.getText().equals(ssn);
+        return error.getText().equals(naam);
     }
 }

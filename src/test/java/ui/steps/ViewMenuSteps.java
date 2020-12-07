@@ -41,6 +41,7 @@ public class ViewMenuSteps {
     //only checking the data, no need for cleanup
     @After
     public void clean() {
+        driver.get(path+"?command=DeleteAll");
         driver.quit();
     }
 
@@ -85,6 +86,17 @@ public class ViewMenuSteps {
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("broodje2"));
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("pasta1"));
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("frietjes"));
+    }
+
+    @Given("er geen maaltijden op het menu staan")
+    public void er_geen_maaltijden_op_het_menu_staan(){
+        //maaltijden moet leeg zijn dus dit is ok
+    }
+
+    @Then("krijgt “Jan” een melding dat er momenteel nog geen broodjes op het menu staan")
+    public void krijgt_Jan_een_melding_dat_er_momenteel_nog_geen_broodjes_op_het_menu_staan(){
+        assertEquals("Patient Overview - BMI app", driver.getTitle());
+        assertTrue(((OverviewPage)currentPage).containsErrorMessage("No patients found"));
     }
 
     /* //Examples given by the teachers, i think atleast
