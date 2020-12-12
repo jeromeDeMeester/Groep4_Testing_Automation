@@ -28,7 +28,7 @@ public class RegisterPage extends Page {
 
     public RegisterPage (WebDriver driver) {
         super(driver);
-        this.driver.get(getPath()+"?command=SignUp");
+        this.driver.get(getPath()+"?command=AddMaaltijd");
     }
 
     public void setNaam(String Naam) {
