@@ -76,6 +76,18 @@ public class OverviewPage extends Page {
         return found;
 
     }
+    public boolean containsMaaltijdenWithNameAndcategorie (String naam, String categorie) {
+        //   TODO Geen idee hoe ge door rijen kunt iteraten
+        ArrayList<WebElement> listItems=(ArrayList<WebElement>) driver.findElements(By.cssSelector("table tr"));
+        boolean found=false;
+        for (WebElement listItem:listItems) {
+            if (listItem.getText().contains(naam) &&  listItem.getText().contains(categorie)) {
+                found=true;
+            }
+        }
+        return found;
+
+    }
 
     public boolean containsErrorMessage (String naam) {
         WebElement error = driver.findElement(By.cssSelector("em"));

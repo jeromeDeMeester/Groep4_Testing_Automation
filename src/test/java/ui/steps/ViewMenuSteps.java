@@ -184,6 +184,34 @@ public class ViewMenuSteps {
         assertEquals("Overzicht Menu", driver.getTitle());
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndAlergeen("frietjes","glutenvrij"));
     }
+    @Given("dat er maaltijden zijn met categorie informatie")
+    public void dat_er_maaltijden_zijn_met_categorie_informatie(io.cucumber.datatable.DataTable dataTable) {
+        // Write code here that turns the phrase above into concrete actions
+        // For automatic transformation, change DataTable to one of
+        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+        // Double, Byte, Short, Long, BigInteger or BigDecimal.
+        //
+        // For other transformations you can register a DataTableType.
+        for(int i=1; i<dataTable.height();i++){
+            RegisterPage page = PageFactory.initElements(driver, RegisterPage.class);
+            page.setNaam(dataTable.row(i).get(0));
+            page.setPrijs("3.0");
+            page.setType(dataTable.row(i).get(1));
+
+            page.submitValid();
+        }
+
+
+    }
+    @Then("zou “Jan” de maaltijden zien met hun categorie")
+    public void zou_jan_de_maaltijden_zien_met_hun_categorie() {
+
+        assertEquals("Overzicht Menu", driver.getTitle());
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndcategorie("Broodje martino","broodjes"));
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndcategorie("Lasagne","pasta"));
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndcategorie("tomatensoep","soepen"));
+    }
 
     /* //Examples given by the teachers, i think atleast
     @Given("there are patients registered")
