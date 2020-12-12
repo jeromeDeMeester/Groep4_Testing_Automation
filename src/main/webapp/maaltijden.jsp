@@ -5,7 +5,7 @@
 <html>
 
 <jsp:include page="head-default.jsp">
-    <jsp:param name="title" value="Patient Overview"/>
+    <jsp:param name="title" value="Overzicht Menu"/>
 </jsp:include>
 
 <body>
@@ -23,8 +23,9 @@
                     <thead class="thead-light">
                     <tr>
                         <th scope="col">Naam</th>
-                        <th scope="col">Prijs</th>
+                        <th scope="col">Prijs (€)</th>
                         <th scope="col">Type</th>
+                        <th scope="col">Vegetarisch</th>
                         <th scope="col">Allergïenen</th>
                     </tr>
                     </thead>
@@ -34,8 +35,26 @@
                             <td id="naam"><c:out value='${maaltijd.naam}'/></td>
                             <td id="prijs"><c:out value='${maaltijd.prijs}'/></td>
                             <td id="categorie"> <c:out value='${maaltijd.type}'/></td>
-                            <c:if test="${maaltijd.vegetarisch}"> <td id="vegetarisch">Vegetarisch</td></c:if>
-                           <c:if test="${maaltijd.allergenen.size() != 0}"> <td id="allergenen"> <c:forEach var="allergeen" items="${maaltijd.allergenen}"> <c:out value="${allergeen}"/> </c:forEach></td></c:if>
+                                <c:choose>
+                                    <c:when test="${maaltijd.vegetarisch}">
+                                        <td id="vegetarisch">Ja</td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td id="vegetarisch">Nee</td>
+                                    </c:otherwise>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${maaltijd.allergenen.size() != 0}">
+                                        <td id="allergenen">
+                                            <c:forEach var="allergeen" items="${maaltijd.allergenen}">
+                                                <c:out value="${allergeen}"/>
+                                            </c:forEach>
+                                        </td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td id="allergenen">Geen</td>
+                                    </c:otherwise>
+                                </c:choose>
                         </tr>
                     </c:forEach>
                     </tbody>

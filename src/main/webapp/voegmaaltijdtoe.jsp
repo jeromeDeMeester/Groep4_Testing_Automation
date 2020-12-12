@@ -5,7 +5,7 @@
 <html>
 
 <jsp:include page="head-default.jsp">
-    <jsp:param name="title" value="Patient Details"/>
+    <jsp:param name="title" value="Add Maaltijd"/>
 </jsp:include>
 
 <body>
@@ -16,7 +16,7 @@
 
 <div id="container">
     <main>
-        <form method="post" action="Controller?command=Register">
+        <form method="post" action="Controller?command=AddMaaltijdConfirm">
             <p>
                 <label for="naam">naam</label>
                 <input type="text" id="naam" name="naam">

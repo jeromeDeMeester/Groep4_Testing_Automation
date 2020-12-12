@@ -31,10 +31,7 @@ public class ViewMenuSteps {
     //starting up chrome driver
     @Before
     public void setUp() {
-        //System.setProperty("webdriver.chrome.driver", "/Users/.../web3pers/chromedriver");
-        // windows: gebruik dubbele \\ om pad aan te geven
-        // hint: zoek een werkende test op van web 2 ...
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\herre\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/drivers/chromedriver.exe");
         driver = new ChromeDriver();
     }
 
@@ -81,7 +78,7 @@ public class ViewMenuSteps {
 
     @Then("worden alle maaltijden getoond die op het menu staan")
     public void Alle_maaltijden_zouden_getoond_moeten_worden(){
-        assertEquals("Patient Overview - BMI app", driver.getTitle());
+        assertEquals("Overzicht Menu", driver.getTitle());
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("broodje1"));
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("broodje2"));
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithName("pasta1"));
@@ -95,7 +92,7 @@ public class ViewMenuSteps {
 
     @Then("krijgt “Jan” een melding dat er momenteel nog geen broodjes op het menu staan")
     public void krijgt_Jan_een_melding_dat_er_momenteel_nog_geen_broodjes_op_het_menu_staan(){
-        assertEquals("Patient Overview - BMI app", driver.getTitle());
+        assertEquals("Overzicht Menu", driver.getTitle());
         assertTrue(((OverviewPage)currentPage).containsErrorMessage("No patients found"));
     }
 
@@ -111,8 +108,36 @@ public class ViewMenuSteps {
 
     @Then("ziet hij dat de maaltijd sporen van walnoten bevat")
     public void zietHijDatDeMaaltijdSporenVanWalnotenBevat() {
-        assertEquals("Patient Overview - BMI app", driver.getTitle());
+        assertEquals("Overzicht Menu", driver.getTitle());
         assertTrue(((OverviewPage)currentPage).containsAlergieWithName("Walnoten"));
+    }
+
+
+
+
+    @Given("dat er maaltijden zijn met prijs informatie")
+    public void datErMaaltijdenZijnMetPrijsInformatie() {
+        RegisterPage page = PageFactory.initElements(driver, RegisterPage.class);
+        page.setNaam("Broodje martino");
+        page.setPrijs("2.0");
+        page.setType("broodje");
+        page.submitValid();
+
+        page.setNaam("Lasagne");
+        page.setPrijs("4.30");
+        page.setType("maaltijd");
+        page.submitValid();
+
+    }
+    
+
+    @Then("zou “Jan” de maaltijden zien met hun prijs")
+    public void zouJanDeMaaltijdenZienMetHunPrijs() {
+        assertEquals("Overzicht Menu", driver.getTitle());
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndPrice("Broodje martino","2.0"));
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndPrice("Lasagne", "4.30"));
+
+        
     }
 
     /* //Examples given by the teachers, i think atleast
@@ -140,7 +165,7 @@ public class ViewMenuSteps {
 
     @Then("Martha should be able to get the list of all social security numbers of the registered patients")
     public void martha_should_be_able_to_get_the_list_of_all_social_security_numbers_of_the_registered_patients() {
-        assertEquals("Patient Overview - BMI app", driver.getTitle());
+        assertEquals("Overzicht Menu", driver.getTitle());
         assertTrue(((PatientsPage)currentPage).containsPatientWithSSN("93051822361"));
         assertTrue(((PatientsPage)currentPage).containsPatientWithSSN("87081220062"));
     }

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Register extends RequestHandler{
+public class AddMaaltijdConfirm extends RequestHandler{
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         try{
@@ -31,7 +31,7 @@ public class Register extends RequestHandler{
             return "Controller?command=OverviewMaaltijden";
         }
         catch(Error e){
-                return "register.jsp";
+                return "voegmaaltijdtoe.jsp";
             }
         }
     }

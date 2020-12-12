@@ -23,11 +23,12 @@ Rule: Informatie over allergieën en al dan niet vegetarisch moet getoond worden
   When “Jan” op het menu kijkt
   Then ziet hij dat de maaltijd sporen van walnoten bevat
 
-# TODO
-#  Scenario: Informatie wanneer de maaltijd vegetarisch is wordt weergegeven
-#  Gegeven lijst van maaltijden
-#  Wanneer “Jan” het menu opent
-#  Dan ziet hij dat de maaltijd vegetarisch is
+#TODO Meerdere dezelfde scenarios?
+
+#   Scenario: Informatie wanneer de maaltijd vegetarisch is wordt weergegeven
+#   Given lijst van maaltijden
+#   When “Jan” op het menu kijkt
+#   Then ziet hij dat de maaltijd vegetarisch is
 #
 #  Scenario: Informatie wanneer de maaltijd glutenvrij is wordt weergegeven
 #  Gegeven lijst van maaltijden
@@ -53,3 +54,15 @@ Rule: Informatie over allergieën en al dan niet vegetarisch moet getoond worden
 #    When "Jan" het menu bekijkt
 #    Then zou "Jan" de maaltijden te zien moeten krijgen met de extra informatie
 #
+
+  Rule: De prijs moet altijd getoond worden
+    Scenario: informatie waar de prijs wordt weergegeven
+      Given dat er maaltijden zijn met prijs informatie
+        | Maaltijd                          | prijs         |
+        | Broodje martino                   | 2 euro        |
+        | Lasagne                           | 4 euro 30 cent |
+
+      When “Jan” op het menu kijkt
+      Then zou “Jan” de maaltijden zien met hun prijs
+  Rule: Maaltijden worden gegroepeerd per categorie
+

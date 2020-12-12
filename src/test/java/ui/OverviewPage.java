@@ -33,6 +33,24 @@ public class OverviewPage extends Page {
         return false;
     }
 
+    public boolean containsMaaltijdenWithNameAndPrice (String naam, String prijs) {
+/*    TODO Geen idee hoe ge door rijen kunt iteraten
+      List<WebElement> trsWithNameId = driver.findElements(By.id("naam"));
+        List<WebElement> trsWithPrijsId = driver.findElements(By.id("prijs"));
+        for (WebElement tr: trsWithNameId) {
+            for (WebElement tr:
+                 ) {
+
+            }
+            if (tr.getText().equals(naam)){
+                return true;
+            }
+        }*/
+
+        return false;
+
+    }
+
     public boolean containsErrorMessage (String naam) {
         WebElement error = driver.findElement(By.cssSelector("em"));
         return error.getText().equals(naam);

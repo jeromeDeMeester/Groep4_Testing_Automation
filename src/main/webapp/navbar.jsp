@@ -8,17 +8,17 @@
         </button>
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item<c:if test="${param.activePage eq 'persons'}"> active</c:if>">
+<%--                <li class="nav-item<c:if test="${param.activePage eq 'persons'}"> active</c:if>">
                     <a class="nav-link" href="Controller?command=Overview">Registered patients</a>
-                </li>
+                </li>--%>
                 <li class="nav-item<c:if test="${param.activePage eq 'persons'}"> active</c:if>">
                     <a class="nav-link" href="Controller?command=Home">Home</a>
                 </li>
                 <li class="nav-item<c:if test="${param.activePage eq 'persons'}"> active</c:if>">
-                    <a class="nav-link" href="Controller?command=OverviewMaaltijden">Overview</a>
+                    <a class="nav-link" href="Controller?command=OverviewMaaltijden">Menu</a>
                 </li>
                 <li class="nav-item<c:if test="${param.activePage eq 'persons'}"> active</c:if>">
-                    <a class="nav-link" href="Controller?command=SignUp">Register</a>
+                    <a class="nav-link" href="Controller?command=AddMaaltijd">Voeg Maaltijd toe</a>
                 </li>
             </ul>
         </div>

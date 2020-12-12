@@ -4,7 +4,7 @@
 <html lang="nl">
 
 <jsp:include page="head-default.jsp">
-    <jsp:param name="title" value="Welkom"/>
+    <jsp:param name="title" value="Home"/>
 </jsp:include>
 
 <body>
