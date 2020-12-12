@@ -58,15 +58,17 @@ Rule: Informatie over allergieën en al dan niet vegetarisch moet getoond worden
   Rule: De prijs moet altijd getoond worden
     Scenario: informatie waar de prijs wordt weergegeven
       Given dat er maaltijden zijn met prijs informatie
-
       When “Jan” op het menu kijkt
       Then zou “Jan” de maaltijden zien met hun prijs
   Rule: Maaltijden worden gegroepeerd per categorie
 
     Scenario: informatie waar de categorie wordt weergegeven
-      Given dat er maaltijden zijn met prijs informatie
-
-      When "Jan" het menu bekijkt
-      Then zou "Jan" de maaltijden zien met hun categorie
+      Given dat er maaltijden zijn met categorie informatie
+        | Maaltijd                   | categorie             |
+        | Broodje martino            | broodjes              |
+        | Lasagne                    | pasta                 |
+        |tomatensoep                 | soepen                |
+      When “Jan” op het menu kijkt
+      Then zou “Jan” de maaltijden zien met hun categorie
 
 

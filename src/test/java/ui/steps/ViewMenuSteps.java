@@ -117,6 +117,7 @@ public class ViewMenuSteps {
 
     @Given("dat er maaltijden zijn met prijs informatie")
     public void datErMaaltijdenZijnMetPrijsInformatie() {
+
         RegisterPage page = PageFactory.initElements(driver, RegisterPage.class);
         page.setNaam("Broodje martino");
         page.setPrijs("2.0");
@@ -124,6 +125,7 @@ public class ViewMenuSteps {
         page.submitValid();
 
         page = PageFactory.initElements(driver, RegisterPage.class);
+
         page.setNaam("Lasagne");
         page.setPrijs("4.30");
         page.setType("maaltijd");
@@ -184,13 +186,7 @@ public class ViewMenuSteps {
     }
     @Given("dat er maaltijden zijn met categorie informatie")
     public void dat_er_maaltijden_zijn_met_categorie_informatie(io.cucumber.datatable.DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
+
         for(int i=1; i<dataTable.height();i++){
             RegisterPage page = PageFactory.initElements(driver, RegisterPage.class);
             page.setNaam(dataTable.row(i).get(0));
@@ -199,8 +195,6 @@ public class ViewMenuSteps {
 
             page.submitValid();
         }
-
-
     }
     @Then("zou “Jan” de maaltijden zien met hun categorie")
     public void zou_jan_de_maaltijden_zien_met_hun_categorie() {
@@ -210,69 +204,4 @@ public class ViewMenuSteps {
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndcategorie("Lasagne","pasta"));
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndcategorie("tomatensoep","soepen"));
     }
-
-    /* //Examples given by the teachers, i think atleast
-    @Given("there are patients registered")
-    public void there_are_patients_registered() {
-        RegisterPage page = PageFactory.initElements(driver, RegisterPage.class);
-        page.setSSN("93051822361");
-        page.setGender("MALE");
-        page.setLength("180");
-        page.setWeight("750000");
-        page.submitValid();
-
-        page = PageFactory.initElements(driver, RegisterPage.class);
-        page.setSSN("87081220062");
-        page.setGender("FEMALE");
-        page.setLength("160");
-        page.setWeight("800000");
-        page.submitValid();
-    }
-
-    @When("Martha requests to get all patients")
-    public void martha_requests_to_get_all_patients() {
-        currentPage = PageFactory.initElements(driver, PatientsPage.class);
-    }
-
-    @Then("Martha should be able to get the list of all social security numbers of the registered patients")
-    public void martha_should_be_able_to_get_the_list_of_all_social_security_numbers_of_the_registered_patients() {
-        assertEquals("Overzicht Menu", driver.getTitle());
-        assertTrue(((PatientsPage)currentPage).containsPatientWithSSN("93051822361"));
-        assertTrue(((PatientsPage)currentPage).containsPatientWithSSN("87081220062"));
-    }
-
-    @Given("there are no patients registered")
-    public void there_are_no_patients_registered() {
-        driver.get(path+"?command=DeleteAll");
-    }
-
-    @Then("Martha should be able to get a message that there are no patients registered")
-    public void martha_should_be_able_to_get_a_message_that_there_are_no_patients_registered() {
-        currentPage = PageFactory.initElements(driver, PatientsPage.class);
-        assertFalse(((PatientsPage)currentPage).containsPatientWithSSN("93051822361"));
-        assertTrue(((PatientsPage)currentPage).containsErrorMessage("No patients found"));
-    }
-
-    @Then("Martha should be able to get {string}")
-    public void martha_should_be_able_to_get(String ssn) {
-        assertTrue(((PatientsPage)currentPage).containsPatientWithSSN(ssn));
-    }
-
-    @Given("the following patients are registered")
-    public void the_following_patients_are_registered(List<String> ssns) {
-        RegisterPage page = PageFactory.initElements(driver, RegisterPage.class);
-        page.setSSN("93051822361");
-        page.setGender("MALE");
-        page.setLength("180");
-        page.setWeight("750000");
-        page.submitValid();
-
-        page = PageFactory.initElements(driver, RegisterPage.class);
-        page.setSSN("87081220062");
-        page.setGender("FEMALE");
-        page.setLength("160");
-        page.setWeight("800000");
-        page.submitValid();
-    }*/
-
 }
