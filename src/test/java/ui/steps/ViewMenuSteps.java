@@ -31,7 +31,7 @@ public class ViewMenuSteps {
     //starting up chrome driver
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\semester 2\\web2\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/drivers/chromedriver.exe");//laat deze lijn staan, zorgt dat het multiplatform werkt
         driver = new ChromeDriver();
     }
 
