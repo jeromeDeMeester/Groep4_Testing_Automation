@@ -20,7 +20,10 @@ public class AddMaaltijdConfirm extends RequestHandler{
 
             //vegetarisch unfinished, weet niet hoe dit af te maken
             String vegetarisch = request.getParameter("vegetarisch");
-            Boolean Bvegetarisch = Boolean.parseBoolean(vegetarisch);
+            Boolean Bvegetarisch = false;
+            if(vegetarisch != null){
+                Bvegetarisch=vegetarisch.equals("on")?true:false;
+            }
 
             //needs to be done properly, just maybe a dellimiter?
             String allergenen = request.getParameter("allergenen");

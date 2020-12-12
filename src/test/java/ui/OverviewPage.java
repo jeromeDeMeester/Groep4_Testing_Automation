@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OverviewPage extends Page {
@@ -32,22 +33,47 @@ public class OverviewPage extends Page {
         }
         return false;
     }
+    public boolean containsMaaltijdenWithNameIsvegetarisch (String naam) {
+        ArrayList<WebElement> listItems=(ArrayList<WebElement>) driver.findElements(By.cssSelector("table tr"));
+        boolean found=false;
+        for (WebElement listItem:listItems) {
+            if (listItem.getText().contains(naam) &&  listItem.getText().contains("Ja")) {
+                found=true;
+            }
+        }
+        return found;
+    }
+    public boolean containsMaaltijdenWithNameAndAlergeen (String naam,String alergeen) {
+        ArrayList<WebElement> listItems=(ArrayList<WebElement>) driver.findElements(By.cssSelector("table tr"));
+        boolean found=false;
+        for (WebElement listItem:listItems) {
+            if (listItem.getText().contains(naam) &&  listItem.getText().contains(alergeen)) {
+                found=true;
+            }
+        }
+        return found;
+    }
+    public boolean containsMaaltijdenWithNameIsNotvegetarisch (String naam) {
+        ArrayList<WebElement> listItems=(ArrayList<WebElement>) driver.findElements(By.cssSelector("table tr"));
+        boolean found=false;
+        for (WebElement listItem:listItems) {
+            if (listItem.getText().contains(naam) &&  listItem.getText().contains("Nee")) {
+                found=true;
+            }
+        }
+        return found;
+    }
 
     public boolean containsMaaltijdenWithNameAndPrice (String naam, String prijs) {
-/*    TODO Geen idee hoe ge door rijen kunt iteraten
-      List<WebElement> trsWithNameId = driver.findElements(By.id("naam"));
-        List<WebElement> trsWithPrijsId = driver.findElements(By.id("prijs"));
-        for (WebElement tr: trsWithNameId) {
-            for (WebElement tr:
-                 ) {
-
+ //   TODO Geen idee hoe ge door rijen kunt iteraten
+      ArrayList<WebElement> listItems=(ArrayList<WebElement>) driver.findElements(By.cssSelector("table tr"));
+        boolean found=false;
+        for (WebElement listItem:listItems) {
+            if (listItem.getText().contains(naam) &&  listItem.getText().contains(prijs)) {
+                found=true;
             }
-            if (tr.getText().equals(naam)){
-                return true;
-            }
-        }*/
-
-        return false;
+        }
+        return found;
 
     }
 

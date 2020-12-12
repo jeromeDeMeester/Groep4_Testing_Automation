@@ -31,7 +31,7 @@ public class ViewMenuSteps {
     //starting up chrome driver
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\semester 2\\web2\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 
@@ -138,6 +138,51 @@ public class ViewMenuSteps {
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndPrice("Lasagne", "4.30"));
 
         
+    }
+    @Given("lijst van maaltijden")
+    public void lijst_van_maaltijden() {
+        RegisterPage page = PageFactory.initElements(driver, RegisterPage.class);
+        page.setNaam("broodje1");
+        page.setPrijs("3.0");
+        page.setType("broodje");
+        page.submitValid();
+
+        page = PageFactory.initElements(driver, RegisterPage.class);
+        page.setNaam("broodje2");
+        page.setPrijs("5.0");
+        page.setType("broodje");
+        page.setAllergenen("Pindas Lactose");
+        page.submitValid();
+
+        page = PageFactory.initElements(driver, RegisterPage.class);
+        page.setNaam("pasta1");
+        page.setPrijs("4.0");
+        page.setType("pasta");
+        page.submitValid();
+
+        page = PageFactory.initElements(driver, RegisterPage.class);
+        page.setNaam("frietjes");
+        page.setPrijs("3.0");
+        page.setType("snack");
+        page.setVegetarisch(true);
+        page.setAllergenen("glutenvrij");
+        page.submitValid();
+    }
+
+    @Then("ziet hij dat de maaltijd vegetarisch is")
+    public void ziet_hij_dat_de_maaltijd_vegetarisch_is() {
+        assertEquals("Overzicht Menu", driver.getTitle());
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameIsvegetarisch("frietjes"));
+
+    }
+    @When("“Jan” het menu opent")
+    public void jan_het_menu_opent() {
+        currentPage = PageFactory.initElements(driver, OverviewPage.class);
+    }
+    @Then("ziet hij dat de maaltijd glutenvrij is")
+    public void ziet_hij_dat_de_maaltijd_glutenvrij_is() {
+        assertEquals("Overzicht Menu", driver.getTitle());
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndAlergeen("frietjes","glutenvrij"));
     }
 
     /* //Examples given by the teachers, i think atleast
