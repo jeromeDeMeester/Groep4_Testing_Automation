@@ -6,3 +6,4 @@ out/
 target/
 Credentials.java
 *.sql
+src/main/drivers/
