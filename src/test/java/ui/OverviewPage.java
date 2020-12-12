@@ -65,7 +65,6 @@ public class OverviewPage extends Page {
     }
 
     public boolean containsMaaltijdenWithNameAndPrice (String naam, String prijs) {
- //   TODO Geen idee hoe ge door rijen kunt iteraten
       ArrayList<WebElement> listItems=(ArrayList<WebElement>) driver.findElements(By.cssSelector("table tr"));
         boolean found=false;
         for (WebElement listItem:listItems) {

@@ -123,11 +123,11 @@ public class ViewMenuSteps {
         page.setType("broodje");
         page.submitValid();
 
+        page = PageFactory.initElements(driver, RegisterPage.class);
         page.setNaam("Lasagne");
         page.setPrijs("4.30");
         page.setType("maaltijd");
         page.submitValid();
-
     }
     
 
@@ -135,9 +135,7 @@ public class ViewMenuSteps {
     public void zouJanDeMaaltijdenZienMetHunPrijs() {
         assertEquals("Overzicht Menu", driver.getTitle());
         assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndPrice("Broodje martino","2.0"));
-        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndPrice("Lasagne", "4.30"));
-
-        
+        assertTrue(((OverviewPage)currentPage).containsMaaltijdenWithNameAndPrice("Lasagne", "4.3"));
     }
     @Given("lijst van maaltijden")
     public void lijst_van_maaltijden() {

@@ -23,7 +23,7 @@
             </p>
             <p>
                 <label for="prijs">prijs</label>
-                <input type="number" id="prijs" name="prijs">
+                <input type="number" step="0.01" id="prijs" name="prijs">
             </p>
             <p>
                 <label for="type">type</label>
