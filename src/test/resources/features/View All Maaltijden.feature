@@ -23,37 +23,15 @@ Rule: Informatie over allergieën en al dan niet vegetarisch moet getoond worden
   When “Jan” op het menu kijkt
   Then ziet hij dat de maaltijd sporen van walnoten bevat
 
-#TODO Meerdere dezelfde scenarios?
-
    Scenario: Informatie wanneer de maaltijd vegetarisch is wordt weergegeven
    Given lijst van maaltijden
    When “Jan” op het menu kijkt
    Then ziet hij dat de maaltijd vegetarisch is
-#
+
   Scenario: Informatie wanneer de maaltijd glutenvrij is wordt weergegeven
   Given lijst van maaltijden
   When “Jan” het menu opent
   Then ziet hij dat de maaltijd glutenvrij is
-#
-#  Scenario Outline: Extra Informatie over de maaltijd wordt weergegeven
-#  Gegeven lijst van maaltijden
-#  Wanneer “Jan” het maaltijd “<maaltijd>” selecteert
-#  Dan ziet hij dat de maaltijd “<info>” is
-#    Examples:
-#      | maaltijd             | info              |
-#      | broodje brie            | sporen van walnoten |
-#      | broodje veggylicious        | vegetarisch         |
-#      | broodje spelt            | glutenvrij          |
-#
-#  Scenario: Extra Informatie over de maaltijden wordt weergegeven
-#    Given dat er maaltijden zijn met extra informatie
-#      | Maaltijd                                 | Allergieën                              | Vegetarisch?    |
-#      | Broodje brie met walnoten   | Sporen van noten, Gluten  |                          |
-#      | Broodje Veggylicious         | Gluten                                | Vegetarisch      |
-#      | Frikandel                            |                                               |                          |
-#    When "Jan" het menu bekijkt
-#    Then zou "Jan" de maaltijden te zien moeten krijgen met de extra informatie
-#
 
   Rule: De prijs moet altijd getoond worden
     Scenario: informatie waar de prijs wordt weergegeven
